@@ -1,0 +1,497 @@
+@import url('https://fonts.cdnfonts.com/css/gotham');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --large-padding: 1.5em;
+  --small-padding: 0.75em;
+  --dark-accent: #BA1E48;
+  --light-accent: #FFABC0;
+  --medium-accent: #FF6881;
+  --black-clr: #202020;
+  --white-clr: #eeeeee;
+}
+
+body{
+  background: var(--white-clr);
+  position: relative;
+  
+}
+
+
+
+button{
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.container > div > header{
+  padding: var(--small-padding);
+  display: flex;
+  background: var(--medium-accent);
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: space-between;
+  
+}
+
+
+/*----- HIDDEN DOM ---------------------------------*/
+.DOM-imgSet{
+  display: none;
+}
+
+#actualImg{
+  display: none;
+  background: var(--black-clr);
+}
+
+
+
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+}
+
+
+
+/*----- LOGO SECTION ---------------------------------*/
+
+.logo{
+  display: flex;
+  align-items: center;
+  padding: var(--large-padding);
+  justify-content: center;
+  text-transform: uppercase;
+  background: var(--dark-accent);
+  color: var(--white-clr);
+  cursor: pointer;
+}
+
+.logo > i {
+  font-size: 3.5rem;
+  margin-right: 1rem;
+}
+
+.logo > h2{
+  font-size: 2rem;
+}
+
+
+
+/*----- MENU SECTION ---------------------------------*/
+.menu{
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.menu li{
+  width: 50%;
+}
+
+.menu li > .nav-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--small-padding);
+  text-decoration: none;
+  background: var(--medium-accent);
+  color: var(--black-clr);
+  transition: all 200ms ease-in-out;
+}
+
+.menu li > .nav-menu:hover{
+  background: var(--white-clr);
+  color: var(--dark-accent);
+}
+
+
+
+.menu li > .nav-menu > i{
+  margin-right: 0.5em;
+  font-size: 1.5rem;
+}
+
+.menu li > .nav-menu > span{
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/*JS CLASS EVENT*/
+.active-menu{
+  background: var(--white-clr) !important;
+  color: var(--dark-accent) !important;
+}
+
+
+
+/*----- IMAGE PREVIEW SECTION ---------------------------------*/
+#previewImg{
+  width: 100%;
+  /* height: auto; */
+  display: none;
+}
+
+.image-container{
+  background: var(--black-clr);
+}
+
+
+/*----- IMAGE IMPOERT SECTION ---------------------------------*/
+.addMinus-btn button > i{
+  font-size: 1.5rem;
+  margin: 0 0.15em;
+  color: var(--dark-accent);
+  transition: all 200ms ease-in-out;
+}
+
+.addMinus-btn button > i:hover{
+  color: var(--light-accent);
+}
+
+.imageSelect{
+    font-size: 1rem;
+    padding: 0.25rem;
+    font-weight: 700;
+    border: none;
+    margin-top: 0.25em;
+    background: var(--light-accent);
+    color: var(--black-clr);
+    border-radius: 3px;
+}
+
+
+
+.img-import-section section{
+  padding: var(--large-padding);
+
+}
+
+.img-import-section .imageInputSection{
+    
+    margin: 0.5em 0;
+}
+
+.img-import-section .imageInputSection > input, #cornerText{
+    width: 100%;
+    font-size: 1rem;
+    padding: .65em .65em;
+}
+
+.img-import-section .previewBtn{
+    font-size: 2rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-accent);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    color: var(--white-clr);
+    cursor: pointer;
+    margin: 0 auto;
+    
+}
+
+.img-import-section .previewBtn > i{
+    margin-right: 0.5rem;
+}
+
+.img-import-section .previewBtn:hover{
+  background: var(--black-clr);
+}
+
+.browseFileContainer{
+  
+  margin: 0.5em 0;
+  
+  
+}
+
+.browseFileContainer > div:first-child{
+  position: relative;
+  
+}
+
+.inputsError::placeholder{
+  color: red;
+  font-weight: 700;
+}
+
+.browseFileContainer input{
+  background: rgb(224, 224, 224);
+  border: 1px solid var(--black-clr);
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: .65em .65em;
+  width: 100%;
+}
+
+
+.errorBrowse{
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff3131;
+  background: #fea6a6;
+  padding: 0.5em ;
+  text-align: center;
+  pointer-events: none;
+  border-radius: 5px;
+  display: none;
+}
+
+
+/*----- Alert Box -----------------------------------------------------*/
+.dialogBoxes{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0 ;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2e2e2e;
+}
+
+.Box{
+  background: #ffffff;
+  min-width: 350px;
+  width: 25%;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.Box h2{
+  padding: 0.65em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3f3f3;
+}
+
+.Box .texts{
+  padding: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Box .texts i{
+    font-size: 4rem;
+    color: crimson;
+    margin-bottom: 0.25em;
+}
+
+.Box button{
+  display: flex;
+  margin: 0 auto 1em;
+  background: crimson;
+  padding: 1em 2em;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 4px;
+  transition: background 300ms ease;
+  text-transform: uppercase;
+  
+}
+
+.Box button:hover{
+  background: rgb(187, 12, 47);
+}
+
+.Box .fa-times{
+  cursor: pointer;
+}
+
+.Box .fa-times:hover{
+  color: crimson;
+}
+
+.fileName{
+  font-size: 1.3rem;
+  padding: 0.25em;
+  width: 100%;
+  
+}
+
+
+
+/*----- IMAGE TRANSFORMATION SECTION ---------------------------------*/
+
+.img-transform-section header i{
+  font-size: 1.5rem;
+  margin: 0 0.15em;
+  color: var(--dark-accent);
+  transition: all 200ms ease-in-out;
+}
+
+.img-transform-section header i:hover{
+  color: var(--light-accent);
+}
+
+.img-transform-section > section{
+  padding: var(--large-padding);
+}
+
+.img-transform-section input[type="range"]{
+  width: 100%;
+}
+
+.guides-section{
+  margin-top: 1em;
+  /* background: rgba(0,0,0,0.1); */
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 0.5em;
+  border-radius: 15px;
+}
+
+.img-transform-section h4{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.img-transform-section p, .guides{
+  display:flex;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+
+.cta{
+  display: flex;
+  flex-direction: column;
+}
+
+.cta select{
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-weight: 700;
+    border: none;
+    margin-top: 0.25em;
+    background: var(--medium-accent);
+    color: var(--black-clr);
+    border-radius: 3px;
+}
+
+.cta select > option:hover{
+  background: var(--light-accent);
+}
+
+.cta > section{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 0.75em;
+  
+}
+
+.cta > section > select{
+    flex:1
+    
+}
+
+.cta > section > select + select{
+    margin-left: 15px;
+}
+
+.hideImageInputs{
+  display: none;
+}
+
+
+
+
+.guides{
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+
+
+.guides-section h4{
+    padding-bottom: 0.25em;
+    margin-bottom: 0.25em;
+    border-bottom: 2px solid var(--medium-accent);
+    text-align: center;
+}
+
+
+.auto-scale{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+
+.auto-scale > button{
+  background: var(--dark-accent);
+  padding: 0.5em 1em;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  
+}
+
+.auto-scale > button:hover{
+    background: var(--black-clr);
+}
+
+
+.quality{
+  position: relative;
+}
+
+.fileSize{
+  position: absolute;
+  opacity: 0.4;
+  margin-left: .5em;
+}
+
+
+
+/*----- IMAGE EXPORT SECTION ---------------------------------*/
+.export-btn{
+  padding: var(--large-padding);
+}
+.export-btn button{
+    width: 100%;
+    font-size: 2rem;
+    background: var(--dark-accent);
+    text-transform: uppercase;
+    padding: 0.35em 0;
+    font-weight: 700;
+    color: var(--white-clr);
+}
+
+.export-btn button:hover{
+  background: var(--black-clr);
+  color: var(--white-clr);
+}
+
+
+/* 
+body{
+  background: #000;
+} */

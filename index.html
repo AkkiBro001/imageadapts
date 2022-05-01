@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="rangeInput.css">
+  <link rel="stylesheet" href="style.css">
+  
+  <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
+                
+  
+  <script src="app.js" crossorigin="anonymous" defer></script>
+                
+  <title>Image Adapts</title>
+
+</head>
+
+<body>
+
+  <div class="dialogBoxes">
+    <div class="Box">
+      <h2><span>Alert</span> <i class="fas fa-times"></i></h2>
+      <div class="texts">
+        <!-- <i class="fas fa-exclamation-triangle"></i>
+        <p>Only browse Max 3 images</p> -->
+        <input type="text" class="fileName" placeholder="Enter File Name Here">
+      </div>
+      <button>Close</button>
+      
+    </div>
+  </div>
+
+  <!-- /// IMG DOM SECTION ///////////////////////// -->
+  
+  <div class="DOM-imgSet">
+    <img src="#" alt="img1" id="img1" crossorigin="anonymous">
+    <img src="#" alt="img2" id="img2" crossorigin="anonymous">
+    <img src="#" alt="img3" id="img3" crossorigin="anonymous">
+  </div>
+  <div class="container">
+    <!-- /// LOGO SECTION ///////////////////////// -->
+    <div class="logo">
+      <i class="far fa-images"></i>
+      <h2>Image Adapts</h2>
+    </div>
+
+    <!-- /// NAV MENU SECTION ///////////////////////// -->
+    <ul class="menu">
+      <li><a href="#" class="nav-menu active-menu"><i class="far fa-bell"></i><span>Noti Adapt</span></a></li>
+      <li><a href="#" class="nav-menu"><i class="far fa-image"></i><span>Banner Adapt</span></a></li>
+    </ul>
+
+    <!-- /// CANVAS SECTION ///////////////////////// -->
+    <div class="image-container">
+      <!-- <canvas id="previewImg"></canvas> -->
+      <canvas alt="previewImg" id="previewImg"></canvas>
+      
+    </div>
+
+    <!-- /// IMAGE IMPORT SECTION ///////////////////////// -->
+    <div class="img-import-section">
+      <header>
+        <h3>Image Import Section</h3>
+        <div style="display: flex; align-items: center;">
+          <label for="canvasClr" style="margin-right: 0.5em; font-weight: 700;">Color</label>
+          <input type="color" id="canvasClr" value="#202020">
+        </div>
+        
+      </header>
+      <section>
+        
+
+        
+
+        <div class="browseFileContainer">
+          <div>
+            <input type="file" name="browseFile" id="browseFile" multiple accept="image/png, image/jpeg, image/webp">
+          </div>
+          
+        </div>
+
+        <button class="previewBtn" name="preview">
+          <i class="far fa-image"></i>
+          <span>Preview Image</span>
+        </button>
+
+      </section>
+
+      
+    </div>
+
+    <!-- /// IMAGE TRANSFORM SECTION ///////////////////////// -->
+    <div class="img-transform-section">
+      <header>
+        <h3>Image Transformation Section</h3>
+        <select name="" class="imageSelect">
+          <option value="IMG-1" data-img = "img1">IMG 1</option>
+        </select>
+        <button id="reset-btn">
+          <i class="fas fa-undo-alt"></i>
+        </button>
+      </header>
+      <section>
+        <div class="position">
+            <div class="x-axis">
+                <h4>x-axis</h4>
+                <div class="range">
+                  <p>
+                    <span class="x-pointNEG">-100%</span>
+                    <span class="x-pointZERO">0%</span>
+                    <span class="x-pointPOS">100%</span>
+                  </p>
+                  <input type="range" name="" id="x-range" value="100" min="0" max="200">
+                </div>
+            </div>
+        
+            <div class="y-axis">
+              <h4>y-axis</h4>
+              <div class="range">
+                <p>
+                  <span class="y-pointNEG">-100%</span>
+                  <span class="y-pointZERO">0%</span>
+                  <span class="y-pointPOS">100%</span>
+                </p>
+                <input type="range" name="" id="y-range" value="100" min="0" max="200">
+              </div>
+          </div>
+        </div>
+        <div class="scale">
+          <h4>Scale</h4>
+          <div class="range">
+            <p>
+              <span class="scaleDown">1%</span>
+              <span class="scaleZERO">0%</span>
+              <span class="scaleUp">100%</span>
+            </p>
+            <input type="range" name="" id="scale-range" value="0" min="1" max="100">
+          </div>
+        </div>
+        <div class="scale">
+          <h4>Image Quality</h4>
+          <div class="range">
+            <p>
+              <span class="qualityDown">0%</span>
+              <span class="quality">50% <span class="fileSize">(0kb)</span></span>
+              <span class="qualityUp">100%</span>
+            </p>
+            <input type="range" name="" id="quality-range" value="50" min="0" max="100">
+          </div>
+        </div>
+        <div class="auto-scale">
+          
+          <button id="scaleToFit" name="scaletofit">Scale To Fit</button>
+        </div>
+        <div class="guides-section">
+          
+
+          <div class="cta hideImageInputs">
+            <h4>CTA Options / Copy</h4>
+            <section>
+            <select name="cta" id="cta">
+              
+            </select>
+
+            <select name="otherSelect" id="copySelect">
+                <option value="select">Select Copy</option>
+                <option value="only-gradient">Only Gradient</option>
+                <option value="BCCI-Courtsey">BCCI Courtsey</option>
+              </select>
+            </section>
+
+            <input type="text" id="cornerText" class="hideImageInputs" placeholder="Enter Corner Text Here">
+          </div>
+        </div>
+        </div>
+      </section>
+
+    <!-- /// IMAGE EXPORT SECTION ///////////////////////// -->
+    <div class="img-export-section">
+      <header>
+        <h3>Image Export Section</h3>
+      </header>
+      <div class="export-btn">
+        <button id="exportBtn">Download <i class="fas fa-download"></i></button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- /// ACTUAL CANVAS SECTION ///////////////////////// -->
+  <canvas id="actualImg"></canvas>
+  <img src="#" alt="" class="test test0">
+  <img src="#" alt="" class="test test1">
+</body>
+
+</html>
+
